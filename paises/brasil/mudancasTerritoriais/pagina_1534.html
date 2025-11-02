@@ -12,7 +12,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         rel="stylesheet"
       />
-    <link rel="stylesheet" href="/paises/brasil/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style2Columns.css">
     <style>
       .legend-highlight {
         background: #ffe5e5;
@@ -77,7 +77,7 @@
     
     <svg
     width="1800mm"
-    height="1762.517mm"
+    height="1612.517mm"
     viewBox="0 0 210 297"
     version="1.1"
     id="svg1"
@@ -122,7 +122,7 @@
         y="11.944522"
         sodipodi:insensitive="true" />
         <g
-        onmousemove="showTooltip(event, '1534', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Arms_of_Ceuta.svg/502px-Arms_of_Ceuta.svg.png?20210808180617', 'Capitanias Hereditárias', this);"
+        onmousemove="showTooltip(event, '1534', 'https://upload.wikimedia.org/wikipedia/commons/9/94/Coat_of_arms_of_Colonial_Brazil.svg', 'Capitanias Hereditárias', this);"
         onmouseout="hideTooltip();"
         onmouseleave="originalColor(this);"
         onclick="openModal('brasil');"
@@ -314,17 +314,13 @@
         id="image1-7"
         x="-157.83531"
         y="-4.5857553" /></g></svg>
-
-
          <div id="map"> 
           <div class="map-overlay">
             <h5>Informações sobre o Brasil</h5>
             <p>Passe o mouse e clique nos mapas do Brasil para descobrir mais sobre sua situação histórica e eventos marcantes ao longo da história.</p>
-        
             <div class="card"> 
+              <h5>Legenda</h5>
               <div class="legend">
-                <h5>Legenda</h5>
-            
                 <!-- Maranhão 1 -->
                 <div class="legend-item">
                   <div class="legend-color" style="background-color: #ff7f00ff; width: 20px; height: 20px;"></div>
@@ -615,8 +611,8 @@
 
         sources: [
             {
-                name: "Brasão Dom João III",
-                url: "https://commons.wikimedia.org/wiki/File:Arms_of_Ceuta.svg#mw-jump-to-license"
+                name: "Brasão de armas do Estado do Brasil ou Principado do Brasil (Brasil Colônia)",
+                url: "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Colonial_Brazil.svg"
             },
             {
                 name: "Capitanias do Brasil",
@@ -808,11 +804,11 @@
 
       const events = [ 
         { year: 1534, label: "Capitanias Hereditárias" },
-        { year: 1750, label: "Tratado de Madri" },
-        { year: 1822, label: "Independência do Brasil" },
-        { year: 1943, label: "Derrota em Stalingrado" },
-        { year: 1944, label: "Dia D: Normandia" },
-        { year: 1945, label: "Queda de Berlim" },
+          { year: 1750, label: "Tratado de Madri" },
+          { year: 1822, label: "Independência do Brasil" },
+          { year: 1903, label: "Tratado de Petrópolis" },
+          { year: 1960, label: "Criação de Brasília" },
+          { year: 1988, label: "Constituição atual" },
     ];
 
 
@@ -907,7 +903,7 @@
           slider.value = initialPosition;
 
           const backgroundValue = (initialPosition / 100) * 100;
-          slider.style.background = `linear-gradient(to right, yellow 0%, yellow ${backgroundValue}%, #feae98 ${backgroundValue}%, #feae98 100%)`;
+          slider.style.background = `linear-gradient(to right, #b71c1c 0%, #b71c1c 40%, #FFD700 40%, #FFD700 60%, #006400 60%, #006400 100%)`;
         }
       }
 
