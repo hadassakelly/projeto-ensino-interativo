@@ -99,6 +99,8 @@
    outline: none;
    opacity: 0.9;
    border-radius: 5px;
+   appearance: none;
+  -webkit-appearance: none;
  }
 
  .slider:hover {
@@ -106,12 +108,13 @@
  }
 
  .slider::-webkit-slider-thumb {
-   width: 24px;
-   height: 24px;
-   background: #feee00;
+   width: 20px;
+   height: 20px;
+   background: #000000;
    cursor: pointer;
    border-radius: 50%;
-   border: 2px solid #000;
+   appearance: none;
+  -webkit-appearance: none;
  }
 
  .marker {

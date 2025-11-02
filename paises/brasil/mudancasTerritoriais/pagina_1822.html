@@ -7,7 +7,7 @@
   <title>Mapa Interativo da URSS</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/paises/brasil/assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <style>
     .legend-highlight {
       background: #ffe5e5;
@@ -86,7 +86,7 @@
     inkscape:current-layer="layer1" />
     <defs id="defs1" />
     <g 
-    onmousemove="showTooltip(event, '1822', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Brazil_%281853-1889%29.svg', 'Império Do Brasil', this, 'green');"
+    onmousemove="showTooltip(event, '1822-1889', 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_Brazil_%281853-1889%29.svg', 'Império Do Brasil', this, 'green');"
     onmouseout="hideTooltip();" onmouseleave="originalColor(this);" onclick="openModal('brasil');"
     inkscape:label="Mapa" 
     id="layer1" 
@@ -103,6 +103,7 @@
       </g>
     </g>
   </svg>
+  
 
 
   <div id="map">
@@ -126,6 +127,13 @@
 
         <button class="btn btn-primary" data-toggle="modal" data-target="#infoModal">Saiba Mais</button>
       </div>
+      <div class="card mt-3">
+      <h5>Províncias</h5>
+      <p>
+        Veja as linhas que definem os limites das províncias.
+      </p>
+      <a href="pt2_pagina_1822.html" class="btn btn-primary">Ver Detalhes</a>
+    </div>
 
       <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -168,8 +176,7 @@
                         e 1824. Essas lutas compõem a <strong>Guerra da Independência do Brasil</strong>.
                         O processo de independência também fortaleceu a <strong>identidade nacional brasileira</strong>
                         e abriu caminho pra criação de uma <strong>Constituição</strong> (a primeira Constituição
-                        brasileira só viria em 1824)
-                        O reconhecimento oficial da independência por Portugal só veio em 1825 com o <strong>Tratado do
+                        brasileira só viria em 1824) e o reconhecimento oficial da independência por Portugal só veio em 1825 com o <strong>Tratado do
                           Rio de Janeiro</strong>.
                       </li> <br>
                     </ul>
@@ -258,12 +265,12 @@
             <h6>Informações Adicionais</h6>
             <p id="additionalInfo"></p>
 
-          <!--<figure class="modal-figure">
+          <figure class="modal-figure">
             <img id="image5" src="" alt="Imagem histórica 5" class="modal-image" />
             <figcaption id="image5Caption" class="modal-caption">
               Legenda da imagem 5
             </figcaption>
-          </figure>-->
+          </figure>
           </div>
 
           <!-- Fontes -->
@@ -285,29 +292,39 @@
       <script>
         const countryData = {
           brasil: {
-            title: "-",
-            imageURL: "-",
-            description: "-",
-            description2: "-",
-            description3: "-",
-            description4: " -",
-            additionalInfo: "-",
-            image: "-",
-            imageCaption: "-",
-            image4: "-",
-            image4Caption: "-",
+            title: "Brasil",
+            imageURL: "https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg",
+            description: "O Império do Brasil foi o Estado monárquico constitucional estabelecido em 1822, após a independência em relação a Portugal. Governado inicialmente por Dom Pedro I e, posteriormente, por Dom Pedro II, foi o único império da América do Sul.",
+            description2: "O período imperial foi marcado pela centralização política, construção da unidade territorial e conflitos internos, como a Confederação do Equador, a Revolução Farroupilha e a Guerra de Canudos. Externamente, destacou-se na Guerra do Paraguai.",
+            description3: "Durante o Segundo Reinado, o país viveu relativa estabilidade política e prosperidade econômica, impulsionada pela exportação de café, pela expansão ferroviária e pela chegada de imigrantes europeus. Foi também o período de consolidação de instituições nacionais.",
+            description4: "A partir de 1850, com a Lei Eusébio de Queirós, que proibiu o tráfico internacional de africanos escravizados, iniciou-se um processo gradual de limitação da escravidão. Em 1871, a Lei do Ventre Livre declarou livres os filhos de mulheres escravizadas nascidos a partir daquela data. E em 1885, a Lei dos Sexagenários concedeu liberdade aos escravizados com 60 anos ou mais. Finalmente, o fim da escravidão com a Lei Áurea, somado à insatisfação das elites militares e civis, culminou na Proclamação da República em 15 de novembro de 1889, encerrando o regime monárquico.",
+            additionalInfo: "Um dos episódios centrais do império foi o Golpe da Maioridade, em 23 de julho de 1840, quando D. Pedro II foi declarado maior de idade aos 14 anos, antecipando seu governo, encerrando o período regencial e inaugurando o Segundo Reinado.",
+            image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Pedro_II_1865_01.jpg",
+            imageCaption: "Dom Pedro II, imperador do Brasil.",
+            image4: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Proclama%C3%A7%C3%A3o_da_Rep%C3%BAblica_by_Benedito_Calixto_1893.jpg",
+            image4Caption: "Proclamação da República, evento que marcou o fim do Império do Brasil.",
+            image5: "https://upload.wikimedia.org/wikipedia/commons/d/d1/RetratodompedroIIcrianca.JPG",
+            image5Caption: "Dom Pedro II aos 12 anos de idade.",
             sources: [
               {
-                name: "Tratado de Madrid (1750)",
-                url: "https://pt.wikipedia.org/wiki/Tratado_de_Madrid_(1750)"
+                name: "Império do Brasil - Wikipédia",
+                url: "https://pt.wikipedia.org/wiki/Imp%C3%A9rio_do_Brasil"
               },
               {
-                name: "Tratado de Madri por Mundo Educação",
-                url: "https://mundoeducacao.uol.com.br/historiadobrasil/tratado-de-madri.htm"
+                name: "Pedro II - Wikipédia",
+                url: "https://pt.wikipedia.org/wiki/Pedro_II_do_Brasil"
               },
               {
-                name: "Foto de Sítio Arqueológico de São Miguel Arcanjo.",
-                url: "https://commons.wikimedia.org/wiki/File:Miss%C3%B5es.jpg"
+                name: "Retrato de Dom Pedro II (1865)",
+                url: "https://commons.wikimedia.org/wiki/File:Pedro_II_1865_01.jpg"
+              },
+              {
+                name: "Pintura da Proclamação da República (1893)",
+                url: "https://commons.wikimedia.org/wiki/File:Proclama%C3%A7%C3%A3o_da_Rep%C3%BAblica_by_Benedito_Calixto_1893.jpg"
+              },
+              {
+                name: "Dom Pedro II criança",
+                url: "https://commons.wikimedia.org/wiki/File:RetratodompedroIIcrianca.JPG"
               }
             ]
           }
@@ -365,6 +382,9 @@
 
           // Informações adicionais
           setTextContent("additionalInfo", data.additionalInfo, "Nenhuma informação adicional disponível");
+
+          setImageAttributes("image5", data.image5, "Imagem histórica 5");
+          setTextContent("image5Caption", data.image5Caption, "Legenda indisponível");
 
 
           // Fontes de informação
@@ -470,9 +490,9 @@
           { year: 1534, label: "Capitanias Hereditárias" },
           { year: 1750, label: "Tratado de Madri" },
           { year: 1822, label: "Independência do Brasil" },
-          { year: 1943, label: "Derrota em Stalingrado" },
-          { year: 1944, label: "Dia D: Normandia" },
-          { year: 1945, label: "Queda de Berlim" },
+          { year: 1903, label: "Tratado de Petrópolis" },
+          { year: 1960, label: "Criação de Brasília" },
+          { year: 1988, label: "Constituição atual" },
         ];
 
 
@@ -567,13 +587,13 @@
             slider.value = initialPosition;
 
             const backgroundValue = (initialPosition / 100) * 100;
-            slider.style.background = `linear-gradient(to right, yellow 0%, yellow ${backgroundValue}%, #feae98 ${backgroundValue}%, #feae98 100%)`;
+            slider.style.background = `linear-gradient(to right, #b71c1c 0%, #b71c1c 40%, #FFD700 40%, #FFD700 60%, #006400 60%, #006400 100%)`;
           }
+          
         }
-
         // Chama a função para inicializar o slider quando a página for carregada
         window.addEventListener("load", initializeSlider);
-
+        
       </script>
 </body>
 
