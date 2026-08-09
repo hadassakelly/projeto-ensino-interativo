@@ -54,6 +54,7 @@
         <div class="slidecontainer">
             <input type="range" min="0" max="100" value="0" class="slider" id="myRange" />
             <div id="markers"></div>
+            <span id="current-event-label"></span>
         </div>
 
         <a href="pagina_1838.html" class="botao btn btn-primary"><i class="fas fa-forward"></i></a>
@@ -207,58 +208,15 @@
 
                     <!--  -->
                     <div class="legend-item">
-                        <div class="legend-color"
-                            style="border-radius: 15px; border-color: #ff0202;  ">
+                        <div class="legend-color" style="border-radius: 15px; border-color: #ff0202;  ">
                         </div>
                         <span>Cidade de Salvador</span>
                     </div>
                 </div>
 
-                <button class="btn btn-primary" data-toggle="modal" data-target="#infoModal">Saiba Mais</button>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="infoModalLabel">Informações sobre a Revolução Pernambucana</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex flex-column align-items-center">
-                        <div class="modal-category">
-                            <div>
-                                <h6 class="font-weight-bold text-secondary">Resumo da Revolução Pernambucana</h6>
-                                <p class="font-weight-bold text-secondary">
-
-                                </p>
-                                <p class="font-weight-bold text-secondary">
-
-                                </p>
-                                <p class="font-weight-bold text-secondary">
-
-                                </p>
-                                <p class="font-weight-bold text-secondary">
-
-                                </p>
-                                <p class="font-weight-bold text-secondary">
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <div id="tooltip">
@@ -566,9 +524,14 @@
                     { year: 1835, label: "Ano da Instabilidade" },
                     { year: 1837, label: "Sabinada" },
                     { year: 1838, label: "Balaiada" },
-                    { year: 1903, label: "Tratado de Petrópolis" },
-                    { year: 1960, label: "Criação de Brasília" },
-                    { year: 1988, label: "Constituição atual" },
+                    { year: 1848, label: "Revolução Praieira" },
+                    { year: 1864, label: "Guerra do Paraguai" },
+                    { year: 1897, label: "Guerra de Canudos" },
+                    { year: 1912, label: "Guerra do Contestado" },
+                    { year: 1932, label: "Revolução Constitucionalista" },
+                    { year: 1945, label: "FEB na Itália" },
+                    { year: 1964, label: "Golpe Militar" },
+                    { year: 1972, label: "Guerrilha do Araguaia" }
                 ];
 
 
@@ -606,6 +569,17 @@
                         markersContainer.appendChild(marker); // Adiciona o marcador ao contêiner
                     });
                 }
+                function updateCurrentLabel(index) {
+                    const label = document.getElementById("current-event-label");
+                    if (!label) return;
+                    const ev = events[index];
+                    // Cor muda conforme a era histórica
+                    let borderColor = "#b71c1c";                          // Colonial
+                    if (ev.year >= 1822 && ev.year < 1889) borderColor = "#c8a800"; // Imperial
+                    if (ev.year >= 1889) borderColor = "#006400";         // República
+                    label.style.borderLeftColor = borderColor;
+                    label.textContent = ev.year + " — " + ev.label;
+                }
 
                 createMarkers();
 
@@ -634,8 +608,7 @@
                     const selectedEvent = events[selectedIndex];
                     const eventPosition = getProportionalPosition(selectedEvent.year);
                     this.value = eventPosition; // Salta para o valor correto
-
-                    const backgroundValue = (eventPosition / 100) * 100;
+                    updateCurrentLabel(selectedIndex);
                 });
 
                 // Faz o slider saltar para o evento correto ao final da movimentação
@@ -662,9 +635,9 @@
                     if (currentYear !== null) {
                         const initialPosition = getProportionalPosition(currentYear);
                         slider.value = initialPosition;
-
-                        const backgroundValue = (initialPosition / 100) * 100;
-                        slider.style.background = `linear-gradient(to right, #b71c1c 0%, #b71c1c 55%, #FFD700 55%, #FFD700 68%, #006400 68%, #006400 100%)`;
+                        slider.style.background = `linear-gradient(to right, #b71c1c 0%, #b71c1c 27%, #FFD700 27%, #FFD700 68%, #006400 68%, #006400 100%)`;
+                        const initialIndex = events.findIndex(e => e.year === currentYear);
+                        if (initialIndex !== -1) updateCurrentLabel(initialIndex);
                     }
                 }
 
